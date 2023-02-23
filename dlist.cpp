@@ -61,6 +61,11 @@ public:
     }
     void insertAtHead(int a)
     {
+        if (head == NULL)
+        {
+            cout << "The list is empty. Cannot insert at the start.";
+            return;
+        }
         node *temp = new node;
         temp->data = a;
         temp->next = head;
@@ -81,10 +86,7 @@ public:
         temp->data = n;
         if (pos == 0)
         {
-            temp->next = current;
-            temp->prev = NULL;
-            current->prev = temp;
-            head = temp;
+            insertAtHead(n);
             return;
         }
         for (int i = 1; i <= pos; i++)
@@ -99,7 +101,7 @@ public:
     }
     void deleteAtPos(int pos)
     {
-        if (pos >= nodeLength())
+        if (pos >= nodeLength() || nodeLength() == 0)
         {
             cout << "Please enter a valid index." << endl;
             return;
@@ -164,10 +166,11 @@ int main()
     a.add_item(90);
     a.add_item(95);
     a.nodeLength();
-    a.insertAtPos(6, 76);
+    a.insertAtPos(3, 76);
     a.nodeLength();
-    a.deleteAtPos(1);
+    a.deleteAtPos(1999);
     a.nodeLength();
+    a.add_item(987654);
     a.printList();
     a.printReverseList();
     return 0;
