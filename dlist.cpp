@@ -126,6 +126,46 @@ public:
         delete current;
     }
 
+    void sortList()
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+        node *temp = NULL;
+        temp = head;
+        cout << "Sorted List" << endl;
+        while (temp != NULL)
+        {
+            if (temp->next == NULL)
+                return;
+            node *key = temp->next;
+            if (key->data < temp->data)
+            {
+                cout << key->data << " " << temp->data << endl;
+                node *previous = key->prev;
+                while (previous != NULL)
+                {
+                    // Travering back to compare every element.
+                    cout << previous->data << " traverse back " << key->data << endl;
+                    if (previous->data < key->data)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        int tempData = key->data;
+                        key->data = previous->data;
+                        previous->data = tempData;
+                        key = key->prev;
+                        previous = previous->prev;
+                    }
+                }
+            }
+            temp = temp->next;
+        }
+    }
+
     int nodeLength()
     {
         node *temp = new node;
@@ -136,7 +176,6 @@ public:
             temp = temp->next;
             length++;
         }
-        // cout << "Length of the Nodelist:" << length << endl;
         return length;
     }
 
@@ -160,18 +199,14 @@ int main()
     double_llist a;
     a.add_item(33333);
     a.add_item(4);
-    a.add_item(7);
-    a.add_item(80);
-    a.add_item(85);
-    a.add_item(90);
-    a.add_item(95);
-    a.nodeLength();
-    a.insertAtPos(3, 76);
-    a.nodeLength();
-    a.deleteAtPos(1999);
-    a.nodeLength();
-    a.add_item(987654);
+    a.add_item(43);
+    a.add_item(7652);
+    a.add_item(1);
+    a.insertAtPos(4, 5);
+    a.add_item(-1);
+    a.add_item(0);
     a.printList();
-    a.printReverseList();
+    a.sortList();
+    a.printList();
     return 0;
 }
