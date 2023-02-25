@@ -205,8 +205,11 @@ int main()
     a.insertAtPos(4, 5);
     a.add_item(-1);
     a.add_item(0);
+    a.add_item(1);
+    a.deleteAtPos(3);
     a.printList();
     a.sortList();
     a.printList();
+    a.printReverseList();
     return 0;
 }
