@@ -107,9 +107,9 @@ void BTree::pushNode(node *temp)
 int main()
 {
     BTree t;
-    t.push(119);
+    t.push(9);
     t.push(8);
-    t.push(10);
+    t.push(7);
     t.push(6);
     t.push(19);
     t.push(19);
