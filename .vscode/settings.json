@@ -2,9 +2,6 @@
     "files.associations": {
         "*.toml": "toml",
         "iostream": "cpp",
-        "new": "cpp",
-        "array": "cpp",
-        "string": "cpp",
-        "string_view": "cpp"
+        "new": "cpp"
     }
 }
