@@ -76,9 +76,11 @@ public:
 int main()
 {
     stack k;
+    k.length();
     k.push(10);
     k.push(20);
     k.push(30);
+    k.length();
     k.printStack();
     k.pop();
     k.pop();
@@ -86,6 +88,8 @@ int main()
     k.pop();
     k.push(80);
     k.push(90);
+    k.length();
+    k.printStack();
     k.pop();
     k.pop();
     k.length();

@@ -1,6 +1,14 @@
 #include <iostream>
 using namespace std;
 
+/*
+@Param add_item <int>
+@Param insertAtHead <int>
+@Param insertAtPos <int, int>
+@Param deleteAtPos <int, int>
+@Param sortList <string>
+*/
+
 struct node
 {
     int data;
@@ -41,7 +49,6 @@ public:
     {
         node *temp = new node;
         temp = head;
-        cout << "Linked List" << endl;
         while (temp != NULL)
         {
             cout << temp->data << endl;
@@ -52,7 +59,6 @@ public:
     {
         node *temp = new node;
         temp = tail;
-        cout << "Reversed Linked List" << endl;
         while (temp != NULL)
         {
             cout << temp->data << endl;
@@ -126,7 +132,7 @@ public:
         delete current;
     }
 
-    void sortList()
+    void sortList(string order)
     {
         if (head == NULL)
         {
@@ -138,7 +144,7 @@ public:
         while (temp != NULL)
         {
             if (temp->next == NULL)
-                return;
+                break;
             node *key = temp->next;
             if (key->data < temp->data)
             {
@@ -163,6 +169,14 @@ public:
                 }
             }
             temp = temp->next;
+        }
+        if (order == "ASC")
+        {
+            printList();
+        }
+        else
+        {
+            printReverseList();
         }
     }
 
@@ -207,9 +221,11 @@ int main()
     a.add_item(0);
     a.add_item(1);
     a.deleteAtPos(3);
-    a.printList();
-    a.sortList();
-    a.printList();
-    a.printReverseList();
+    a.add_item(-9999);
+    a.add_item(9);
+    a.add_item(-9989898);
+    a.add_item(87);
+    a.add_item(-323);
+    a.sortList("DSC");
     return 0;
 }
